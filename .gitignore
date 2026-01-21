@@ -1,0 +1,24 @@
+# Node
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Valyu config (contains API keys)
+.valyu/
+config.json
+
+# Test files
+test/
+*.test.js
+*.test.mjs

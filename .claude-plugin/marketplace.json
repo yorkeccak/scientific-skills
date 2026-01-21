@@ -1,0 +1,17 @@
+{
+  "name": "valyu-scientific",
+  "version": "1.0.0",
+  "description": "Scientific Literature Search Skills",
+  "owner": {
+    "name": "Valyu AI"
+  },
+  "plugins": [
+    {
+      "name": "scientific-skills",
+      "source": "./",
+      "description": "Scientific literature search skills for Claude using Valyu API - PubMed, arXiv, ChEMBL, DrugBank, bioRxiv, medRxiv, and more",
+      "version": "1.0.0",
+      "category": "research"
+    }
+  ]
+}
