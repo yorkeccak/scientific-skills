@@ -1,6 +1,6 @@
 # Scientific Skills for Claude
 
-![Demo](demo.mp4)
+![Demo](demo.gif)
 
 Natural language scientific literature search skills with semantic search over PubMed, arXiv, ChEMBL, DrugBank, bioRxiv, medRxiv, clinical trials, and more with zero API complexity.
 
@@ -11,6 +11,12 @@ Natural language scientific literature search skills with semantic search over P
 - **Full-Text Access**: Returns complete article content, not just abstracts
 - **Image Links**: Includes figures and images from papers
 - **Comprehensive Coverage**: Access to ALL scientific literature across multiple databases
+
+## Example
+
+![Example 1](example1.png)
+
+![Example 2](example2.png)
 
 ## Available Skills
 
