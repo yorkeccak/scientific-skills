@@ -45,13 +45,38 @@ Natural language scientific literature search skills with semantic search over P
 
 ## Installation
 
-**Quick install via npx:**
+### Via skills.sh (Recommended)
 
 ```bash
 npx skills i yorkeccak/scientific-skills
 ```
 
-**Or browse all skills:** [skills.sh/yorkeccak/scientific-skills](https://skills.sh/yorkeccak/scientific-skills)
+Or browse individual skills at [skills.sh](https://skills.sh) - search for "yorkeccak"
+
+Example: [skills.sh/yorkeccak/scientific-skills/biomedical-search](https://skills.sh/yorkeccak/scientific-skills/biomedical-search)
+
+**Supports installation to multiple agents:**
+- Antigravity
+- Claude Code
+- Clawdbot
+- Codex
+- Cursor
+- Droid
+- Gemini CLI
+- GitHub Copilot
+- Goose
+- Kilo Code
+- Kiro CLI
+- OpenCode
+- Roo Code
+- Trae
+- Windsurf
+
+### Via Claude Plugin
+
+```bash
+/plugin install yorkeccak/scientific-skills
+```
 
 ### Manual Installation
 
