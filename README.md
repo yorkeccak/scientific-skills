@@ -1,5 +1,7 @@
 # Scientific Skills for Claude
 
+<video src="demo.mp4" controls></video>
+
 Natural language scientific literature search skills powered by Valyu's semantic search API. Access PubMed, arXiv, ChEMBL, DrugBank, bioRxiv, medRxiv, clinical trials, and more with zero API complexity.
 
 ## Why These Skills Are Powerful
