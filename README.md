@@ -2,7 +2,7 @@
 
 ![Demo](demo.mp4)
 
-Natural language scientific literature search skills with semantic semantic over PubMed, arXiv, ChEMBL, DrugBank, bioRxiv, medRxiv, clinical trials, and more with zero API complexity.
+Natural language scientific literature search skills with semantic search over PubMed, arXiv, ChEMBL, DrugBank, bioRxiv, medRxiv, clinical trials, and more with zero API complexity.
 
 ## Why These Skills Are Powerful
 
