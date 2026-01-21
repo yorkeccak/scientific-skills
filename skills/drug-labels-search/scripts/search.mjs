@@ -85,7 +85,7 @@ async function searchDrug_Labels(query, maxResults = 10) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'X-API-Key': apiKey
+        'x-api-key': apiKey
       },
       body: JSON.stringify({
         query: query,
