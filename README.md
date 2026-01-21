@@ -39,27 +39,23 @@ Natural language scientific literature search skills powered by Valyu's semantic
 
 ## Installation
 
-### For Claude Code
+**Quick install via npx:**
+
+```bash
+npx skills i yorkeccak/scientific-skills
+```
+
+**Or browse all skills:** [skills.sh/yorkeccak/scientific-skills](https://skills.sh/yorkeccak/scientific-skills)
+
+### Manual Installation
 
 ```bash
 # Clone the repository
 cd ~/dev
-git clone https://github.com/valyu-network/scientific-skills.git
+git clone https://github.com/yorkeccak/scientific-skills.git
 
 # Add as a local plugin
 /plugin add ~/dev/scientific-skills
-```
-
-### For Distribution
-
-*(Coming soon: Installation via Claude plugin marketplace)*
-
-```bash
-# Add the marketplace
-/plugin marketplace add valyu-network/scientific-skills
-
-# Install the plugin
-/plugin install scientific-skills@valyu-scientific
 ```
 
 ## Quick Start
