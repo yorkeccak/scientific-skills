@@ -1,7 +1,17 @@
 ---
 name: arxiv-search
-description: Search arXiv preprints in physics, math, CS, and quantitative biology with natural language queries. Powered by Valyu's semantic search - no API param parsing needed, just ask in plain English. Returns full-text content with images.
+description: Search arXiv physics, math, and computer science preprints using natural language queries. Powered by Valyu semantic search.
+keywords:
+  - arxiv
+  - preprints
+  - physics
+  - mathematics
+  - computer-science
+  - ai-research
+  - semantic-search
+license: MIT
 ---
+
 
 # arXiv Search
 
@@ -61,36 +71,14 @@ User: Search arXiv for transformer architecture papers
 → Success!
 ```
 
-## Usage
+## When to Use This Skill
 
-### Basic Search
-
-```bash
-scripts/search "your natural language query" [maxResults]
-```
-
-### Examples
-
-```bash
-# Search for AI/ML papers
-scripts/search "attention mechanisms in neural networks" 15
-
-# Find physics papers
-scripts/search "quantum computing error correction" 20
-
-# Search for math papers
-scripts/search "topology and algebraic geometry" 10
-
-# Find quantitative biology papers
-scripts/search "protein folding prediction methods" 12
-```
-
-### Setup Command
-
-```bash
-scripts/search setup <api-key>
-```
-
+- Searching preprints across physics, mathematics, and computer science
+- Finding research before peer review publication
+- Cross-disciplinary research combining fields
+- Staying current with rapid developments in AI and theoretical physics
+- Prior art searching for new ideas
+- Tracking emerging research trends
 ## Output Format
 
 ```json
@@ -158,6 +146,7 @@ scripts/search "representation theory and Lie algebras" 15
 scripts/search "distributed systems consensus algorithms" 25
 ```
 
+
 ## Error Handling
 
 All commands return JSON with `success` field:
@@ -188,3 +177,48 @@ scripts/
 ```
 
 Direct API calls using Node.js built-in `fetch()`, zero external dependencies.
+
+## Adding to Your Project
+
+If you're building an AI project and want to integrate arXiv Search directly into your application, use the Valyu SDK:
+
+### Python Integration
+
+```python
+from valyu import Valyu
+
+client = Valyu(api_key="your-api-key")
+
+response = client.search(
+    query="your search query here",
+    included_sources=["valyu/valyu-arxiv"],
+    max_results=20
+)
+
+for result in response["results"]:
+    print(f"Title: {result['title']}")
+    print(f"URL: {result['url']}")
+    print(f"Content: {result['content'][:500]}...")
+```
+
+### TypeScript Integration
+
+```typescript
+import { Valyu } from "valyu-js";
+
+const client = new Valyu("your-api-key");
+
+const response = await client.search({
+  query: "your search query here",
+  includedSources: ["valyu/valyu-arxiv"],
+  maxResults: 20
+});
+
+response.results.forEach((result) => {
+  console.log(`Title: ${result.title}`);
+  console.log(`URL: ${result.url}`);
+  console.log(`Content: ${result.content.substring(0, 500)}...`);
+});
+```
+
+See the [Valyu docs](https://docs.valyu.ai) for full integration examples and SDK reference.

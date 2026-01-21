@@ -1,7 +1,16 @@
 ---
 name: drug-discovery-search
-description: Search across ChEMBL, DrugBank, FDA drug labels, and Open Targets with natural language queries. Powered by Valyu's semantic search - no API param parsing needed, just ask in plain English. Returns comprehensive drug discovery data.
+description: End-to-end drug discovery platform combining ChEMBL compounds, DrugBank, targets, and FDA labels. Natural language powered by Valyu.
+keywords:
+  - drug-discovery
+  - drug-development
+  - compound-screening
+  - target-validation
+  - comprehensive-search
+  - semantic-search
+license: MIT
 ---
+
 
 # Drug Discovery Search
 
@@ -50,36 +59,13 @@ When you run a search and receive `"setup_required": true`, follow this flow:
 
 3. **Retry the original search.**
 
-## Usage
+## When to Use This Skill
 
-### Basic Search
-
-```bash
-scripts/search "your natural language query" [maxResults]
-```
-
-### Examples
-
-```bash
-# Search for kinase inhibitors
-scripts/search "selective CDK4/6 inhibitors mechanism" 25
-
-# Find GPCR ligands
-scripts/search "dopamine D2 receptor antagonists" 20
-
-# Search for target validation
-scripts/search "BRAF V600E inhibitors melanoma" 15
-
-# Find drug interactions
-scripts/search "CYP3A4 substrates drug interactions" 30
-```
-
-### Setup Command
-
-```bash
-scripts/search setup <api-key>
-```
-
+- End-to-end drug discovery information
+- Target validation through compounds and trials
+- Complete drug development information
+- Compound optimization with target data
+- Safety and efficacy research
 ## Output Format
 
 ```json
@@ -150,6 +136,7 @@ scripts/search "mTOR inhibitors cancer and aging" 30
 scripts/search "tyrosine kinase inhibitors cardiac toxicity" 60
 ```
 
+
 ## Error Handling
 
 All commands return JSON with `success` field:
@@ -180,3 +167,48 @@ scripts/
 ```
 
 Direct API calls using Node.js built-in `fetch()`, zero external dependencies.
+
+## Adding to Your Project
+
+If you're building an AI project and want to integrate Drug Discovery Search directly into your application, use the Valyu SDK:
+
+### Python Integration
+
+```python
+from valyu import Valyu
+
+client = Valyu(api_key="your-api-key")
+
+response = client.search(
+    query="your search query here",
+    included_sources=["valyu/valyu-chembl", "valyu/valyu-drugbank", "valyu/valyu-drug-labels", "valyu/valyu-open-targets"],
+    max_results=20
+)
+
+for result in response["results"]:
+    print(f"Title: {result['title']}")
+    print(f"URL: {result['url']}")
+    print(f"Content: {result['content'][:500]}...")
+```
+
+### TypeScript Integration
+
+```typescript
+import { Valyu } from "valyu-js";
+
+const client = new Valyu("your-api-key");
+
+const response = await client.search({
+  query: "your search query here",
+  includedSources: ["valyu/valyu-chembl", "valyu/valyu-drugbank", "valyu/valyu-drug-labels", "valyu/valyu-open-targets"],
+  maxResults: 20
+});
+
+response.results.forEach((result) => {
+  console.log(`Title: ${result.title}`);
+  console.log(`URL: ${result.url}`);
+  console.log(`Content: ${result.content.substring(0, 500)}...`);
+});
+```
+
+See the [Valyu docs](https://docs.valyu.ai) for full integration examples and SDK reference.

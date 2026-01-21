@@ -1,7 +1,16 @@
 ---
 name: biomedical-search
-description: Search across PubMed, bioRxiv, medRxiv, ClinicalTrials.gov, and FDA drug labels with natural language queries. Powered by Valyu's semantic search - no API param parsing needed, just ask in plain English. Returns comprehensive biomedical data.
+description: Complete biomedical information search combining PubMed, preprints, clinical trials, and FDA drug labels. Powered by Valyu semantic search.
+keywords:
+  - biomedical-search
+  - clinical-research
+  - evidence-based-medicine
+  - medical-research
+  - comprehensive-search
+  - semantic-search
+license: MIT
 ---
+
 
 # Biomedical Search
 
@@ -50,36 +59,13 @@ When you run a search and receive `"setup_required": true`, follow this flow:
 
 3. **Retry the original search.**
 
-## Usage
+## When to Use This Skill
 
-### Basic Search
-
-```bash
-scripts/search "your natural language query" [maxResults]
-```
-
-### Examples
-
-```bash
-# Search for cancer treatments
-scripts/search "immunotherapy for triple negative breast cancer" 25
-
-# Find COVID research and trials
-scripts/search "COVID-19 vaccine long-term safety" 20
-
-# Search for drug information
-scripts/search "GLP-1 agonists for weight loss" 15
-
-# Find rare disease research
-scripts/search "gene therapy for sickle cell disease" 30
-```
-
-### Setup Command
-
-```bash
-scripts/search setup <api-key>
-```
-
+- Complete biomedical information gathering
+- Clinical research combined with basic science
+- Finding trials, literature, and official drug info together
+- Evidence-based medicine research
+- Disease understanding from multiple angles
 ## Output Format
 
 ```json
@@ -150,6 +136,7 @@ scripts/search "pembrolizumab dosing regimens NSCLC" 30
 scripts/search "JAK inhibitors rheumatoid arthritis efficacy" 60
 ```
 
+
 ## Error Handling
 
 All commands return JSON with `success` field:
@@ -180,3 +167,48 @@ scripts/
 ```
 
 Direct API calls using Node.js built-in `fetch()`, zero external dependencies.
+
+## Adding to Your Project
+
+If you're building an AI project and want to integrate Biomedical Search directly into your application, use the Valyu SDK:
+
+### Python Integration
+
+```python
+from valyu import Valyu
+
+client = Valyu(api_key="your-api-key")
+
+response = client.search(
+    query="your search query here",
+    included_sources=["valyu/valyu-pubmed", "valyu/valyu-biorxiv", "valyu/valyu-medrxiv", "valyu/valyu-clinical-trials", "valyu/valyu-drug-labels"],
+    max_results=20
+)
+
+for result in response["results"]:
+    print(f"Title: {result['title']}")
+    print(f"URL: {result['url']}")
+    print(f"Content: {result['content'][:500]}...")
+```
+
+### TypeScript Integration
+
+```typescript
+import { Valyu } from "valyu-js";
+
+const client = new Valyu("your-api-key");
+
+const response = await client.search({
+  query: "your search query here",
+  includedSources: ["valyu/valyu-pubmed", "valyu/valyu-biorxiv", "valyu/valyu-medrxiv", "valyu/valyu-clinical-trials", "valyu/valyu-drug-labels"],
+  maxResults: 20
+});
+
+response.results.forEach((result) => {
+  console.log(`Title: ${result.title}`);
+  console.log(`URL: ${result.url}`);
+  console.log(`Content: ${result.content.substring(0, 500)}...`);
+});
+```
+
+See the [Valyu docs](https://docs.valyu.ai) for full integration examples and SDK reference.

@@ -1,6 +1,15 @@
 ---
 name: pubmed-search
-description: Search PubMed biomedical literature with natural language queries. Powered by Valyu's semantic search - no API param parsing needed, just ask in plain English. Returns full-text content with images, not just abstracts.
+description: Search PubMed biomedical literature with natural language queries powered by Valyu semantic search. Full-text access, integrate into your AI projects.
+keywords:
+  - pubmed
+  - biomedical-literature
+  - medical-research
+  - semantic-search
+  - natural-language-queries
+  - full-text-search
+  - research-integration
+license: MIT
 ---
 
 # PubMed Search
@@ -188,3 +197,48 @@ scripts/
 ```
 
 Direct API calls using Node.js built-in `fetch()`, zero external dependencies.
+
+## Adding to Your Project
+
+If you're building an AI project and want to integrate PubMed search directly into your application, use the Valyu SDK:
+
+### Python Integration
+
+```python
+from valyu import Valyu
+
+client = Valyu(api_key="your-api-key")
+
+response = client.search(
+    query="immunotherapy for melanoma",
+    included_sources=["valyu/valyu-pubmed"],
+    max_results=20
+)
+
+for result in response["results"]:
+    print(f"Title: {result['title']}")
+    print(f"URL: {result['url']}")
+    print(f"Content: {result['content'][:500]}...")
+```
+
+### TypeScript Integration
+
+```typescript
+import { Valyu } from "valyu-js";
+
+const client = new Valyu("your-api-key");
+
+const response = await client.search({
+  query: "immunotherapy for melanoma",
+  includedSources: ["valyu/valyu-pubmed"],
+  maxResults: 20
+});
+
+response.results.forEach((result) => {
+  console.log(`Title: ${result.title}`);
+  console.log(`URL: ${result.url}`);
+  console.log(`Content: ${result.content.substring(0, 500)}...`);
+});
+```
+
+See the [Valyu docs](https://docs.valyu.ai) for full integration examples and SDK reference.

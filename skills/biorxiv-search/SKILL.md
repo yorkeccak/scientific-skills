@@ -1,7 +1,16 @@
 ---
 name: biorxiv-search
-description: Search bioRxiv biological preprints with natural language queries. Powered by Valyu's semantic search - no API param parsing needed, just ask in plain English. Returns full-text content with images.
+description: Search bioRxiv biology preprints with natural language queries. Semantic search powered by Valyu.
+keywords:
+  - biorxiv
+  - biology-preprints
+  - molecular-biology
+  - genetics
+  - life-sciences
+  - semantic-search
+license: MIT
 ---
+
 
 # bioRxiv Search
 
@@ -61,36 +70,14 @@ User: Search bioRxiv for CRISPR advances
 → Success!
 ```
 
-## Usage
+## When to Use This Skill
 
-### Basic Search
-
-```bash
-scripts/search "your natural language query" [maxResults]
-```
-
-### Examples
-
-```bash
-# Search for genetics papers
-scripts/search "genome editing efficiency improvements" 15
-
-# Find neuroscience papers
-scripts/search "neural circuit mapping techniques" 20
-
-# Search for cell biology papers
-scripts/search "mitochondrial dynamics in aging" 10
-
-# Find immunology papers
-scripts/search "T cell exhaustion mechanisms" 12
-```
-
-### Setup Command
-
-```bash
-scripts/search setup <api-key>
-```
-
+- Finding biology research not yet published in journals
+- Cross-disciplinary life sciences research
+- Rapid access to unpublished experimental data
+- Disease mechanism research
+- Evolutionary and developmental biology studies
+- Ecological research and conservation biology
 ## Output Format
 
 ```json
@@ -158,6 +145,7 @@ scripts/search "single cell RNA sequencing analysis" 15
 scripts/search "embryonic stem cell differentiation" 25
 ```
 
+
 ## Error Handling
 
 All commands return JSON with `success` field:
@@ -188,3 +176,48 @@ scripts/
 ```
 
 Direct API calls using Node.js built-in `fetch()`, zero external dependencies.
+
+## Adding to Your Project
+
+If you're building an AI project and want to integrate bioRxiv Search directly into your application, use the Valyu SDK:
+
+### Python Integration
+
+```python
+from valyu import Valyu
+
+client = Valyu(api_key="your-api-key")
+
+response = client.search(
+    query="your search query here",
+    included_sources=["valyu/valyu-biorxiv"],
+    max_results=20
+)
+
+for result in response["results"]:
+    print(f"Title: {result['title']}")
+    print(f"URL: {result['url']}")
+    print(f"Content: {result['content'][:500]}...")
+```
+
+### TypeScript Integration
+
+```typescript
+import { Valyu } from "valyu-js";
+
+const client = new Valyu("your-api-key");
+
+const response = await client.search({
+  query: "your search query here",
+  includedSources: ["valyu/valyu-biorxiv"],
+  maxResults: 20
+});
+
+response.results.forEach((result) => {
+  console.log(`Title: ${result.title}`);
+  console.log(`URL: ${result.url}`);
+  console.log(`Content: ${result.content.substring(0, 500)}...`);
+});
+```
+
+See the [Valyu docs](https://docs.valyu.ai) for full integration examples and SDK reference.

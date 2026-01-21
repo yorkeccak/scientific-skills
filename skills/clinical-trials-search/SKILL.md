@@ -1,7 +1,16 @@
 ---
 name: clinical-trials-search
-description: Search ClinicalTrials.gov database with natural language queries. Powered by Valyu's semantic search - no API param parsing needed, just ask in plain English. Returns trial details, phases, conditions, and outcomes.
+description: Search ClinicalTrials.gov with natural language queries. Find clinical trials, enrollment, and outcomes using Valyu semantic search.
+keywords:
+  - clinical-trials
+  - trial-search
+  - patient-recruitment
+  - clinical-research
+  - trial-outcomes
+  - semantic-search
+license: MIT
 ---
+
 
 # Clinical Trials Search
 
@@ -49,36 +58,14 @@ When you run a search and receive `"setup_required": true`, follow this flow:
 
 3. **Retry the original search.**
 
-## Usage
+## When to Use This Skill
 
-### Basic Search
-
-```bash
-scripts/search "your natural language query" [maxResults]
-```
-
-### Examples
-
-```bash
-# Search for cancer trials
-scripts/search "phase 3 immunotherapy trials for melanoma" 15
-
-# Find diabetes studies
-scripts/search "GLP-1 agonists for type 2 diabetes" 20
-
-# Search for rare disease trials
-scripts/search "gene therapy trials for muscular dystrophy" 10
-
-# Find vaccine studies
-scripts/search "COVID-19 vaccine efficacy trials" 12
-```
-
-### Setup Command
-
-```bash
-scripts/search setup <api-key>
-```
-
+- Finding ongoing and completed clinical trials
+- Identifying trial eligibility criteria
+- Recruiting status and enrollment information
+- Comparing treatment approaches in trials
+- Patient recruitment and enrollment research
+- Outcomes and safety data from trials
 ## Output Format
 
 ```json
@@ -146,6 +133,7 @@ scripts/search "continuous glucose monitoring device studies" 15
 scripts/search "behavioral interventions for obesity" 25
 ```
 
+
 ## Error Handling
 
 All commands return JSON with `success` field:
@@ -176,3 +164,48 @@ scripts/
 ```
 
 Direct API calls using Node.js built-in `fetch()`, zero external dependencies.
+
+## Adding to Your Project
+
+If you're building an AI project and want to integrate Clinical Trials Search directly into your application, use the Valyu SDK:
+
+### Python Integration
+
+```python
+from valyu import Valyu
+
+client = Valyu(api_key="your-api-key")
+
+response = client.search(
+    query="your search query here",
+    included_sources=["valyu/valyu-clinical-trials"],
+    max_results=20
+)
+
+for result in response["results"]:
+    print(f"Title: {result['title']}")
+    print(f"URL: {result['url']}")
+    print(f"Content: {result['content'][:500]}...")
+```
+
+### TypeScript Integration
+
+```typescript
+import { Valyu } from "valyu-js";
+
+const client = new Valyu("your-api-key");
+
+const response = await client.search({
+  query: "your search query here",
+  includedSources: ["valyu/valyu-clinical-trials"],
+  maxResults: 20
+});
+
+response.results.forEach((result) => {
+  console.log(`Title: ${result.title}`);
+  console.log(`URL: ${result.url}`);
+  console.log(`Content: ${result.content.substring(0, 500)}...`);
+});
+```
+
+See the [Valyu docs](https://docs.valyu.ai) for full integration examples and SDK reference.

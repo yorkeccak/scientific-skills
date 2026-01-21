@@ -1,7 +1,16 @@
 ---
 name: drugbank-search
-description: Search DrugBank comprehensive drug database with natural language queries. Powered by Valyu's semantic search - no API param parsing needed, just ask in plain English. Returns drug information, mechanisms, interactions, and targets.
+description: Search DrugBank comprehensive drug database with natural language queries. Drug mechanisms, interactions, and safety data powered by Valyu.
+keywords:
+  - drugbank
+  - drugs
+  - pharmacology
+  - drug-interactions
+  - adverse-reactions
+  - semantic-search
+license: MIT
 ---
+
 
 # DrugBank Search
 
@@ -49,36 +58,14 @@ When you run a search and receive `"setup_required": true`, follow this flow:
 
 3. **Retry the original search.**
 
-## Usage
+## When to Use This Skill
 
-### Basic Search
-
-```bash
-scripts/search "your natural language query" [maxResults]
-```
-
-### Examples
-
-```bash
-# Search for drug class
-scripts/search "ACE inhibitors mechanism of action" 15
-
-# Find drug interactions
-scripts/search "warfarin drug interactions" 20
-
-# Search for targets
-scripts/search "drugs targeting EGFR" 10
-
-# Find adverse effects
-scripts/search "statins side effects profile" 12
-```
-
-### Setup Command
-
-```bash
-scripts/search setup <api-key>
-```
-
+- Comprehensive drug information lookup
+- Drug interactions and side effects research
+- Target identification and validation
+- Mechanism of action studies
+- Pharmacokinetics and pharmacodynamics research
+- Drug metabolism and adverse event data
 ## Output Format
 
 ```json
@@ -146,6 +133,7 @@ scripts/search "selective serotonin reuptake inhibitors mechanism" 15
 scripts/search "drugs targeting BCR-ABL fusion protein" 25
 ```
 
+
 ## Error Handling
 
 All commands return JSON with `success` field:
@@ -176,3 +164,48 @@ scripts/
 ```
 
 Direct API calls using Node.js built-in `fetch()`, zero external dependencies.
+
+## Adding to Your Project
+
+If you're building an AI project and want to integrate DrugBank Search directly into your application, use the Valyu SDK:
+
+### Python Integration
+
+```python
+from valyu import Valyu
+
+client = Valyu(api_key="your-api-key")
+
+response = client.search(
+    query="your search query here",
+    included_sources=["valyu/valyu-drugbank"],
+    max_results=20
+)
+
+for result in response["results"]:
+    print(f"Title: {result['title']}")
+    print(f"URL: {result['url']}")
+    print(f"Content: {result['content'][:500]}...")
+```
+
+### TypeScript Integration
+
+```typescript
+import { Valyu } from "valyu-js";
+
+const client = new Valyu("your-api-key");
+
+const response = await client.search({
+  query: "your search query here",
+  includedSources: ["valyu/valyu-drugbank"],
+  maxResults: 20
+});
+
+response.results.forEach((result) => {
+  console.log(`Title: ${result.title}`);
+  console.log(`URL: ${result.url}`);
+  console.log(`Content: ${result.content.substring(0, 500)}...`);
+});
+```
+
+See the [Valyu docs](https://docs.valyu.ai) for full integration examples and SDK reference.
