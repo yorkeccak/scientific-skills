@@ -29,20 +29,19 @@ Search the complete ClinicalTrials.gov database of clinical studies using natura
 1. Node.js 18+ (uses built-in fetch)
 2. Valyu API key from https://platform.valyu.ai ($10 free credits)
 
-## CRITICAL: Script Path Resolution
+## Usage
 
-The `scripts/search` commands in this documentation are relative to this skill's installation directory.
-
-Before running any command, locate the script using:
+Run searches using the installed skill path:
 
 ```bash
-CLINICAL_TRIALS_SCRIPT=$(find ~/.claude/plugins/cache -name "search" -path "*/clinical-trials-search/*/scripts/*" -type f 2>/dev/null | head -1)
+~/.claude/skills/clinical-trials-search/scripts/search "your search query" 20
 ```
 
-Then use the full path for all commands:
+Example:
 ```bash
-$CLINICAL_TRIALS_SCRIPT "CAR-T cell therapy trials" 15
+~/.claude/skills/clinical-trials-search/scripts/search "kinase inhibitors" 15
 ```
+
 
 ## API Key Setup Flow
 

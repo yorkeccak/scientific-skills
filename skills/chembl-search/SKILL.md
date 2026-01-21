@@ -29,20 +29,19 @@ Search the complete ChEMBL database of bioactive molecules, drug targets, and bi
 1. Node.js 18+ (uses built-in fetch)
 2. Valyu API key from https://platform.valyu.ai ($10 free credits)
 
-## CRITICAL: Script Path Resolution
+## Usage
 
-The `scripts/search` commands in this documentation are relative to this skill's installation directory.
-
-Before running any command, locate the script using:
+Run searches using the installed skill path:
 
 ```bash
-CHEMBL_SCRIPT=$(find ~/.claude/plugins/cache -name "search" -path "*/chembl-search/*/scripts/*" -type f 2>/dev/null | head -1)
+~/.claude/skills/chembl-search/scripts/search "your search query" 20
 ```
 
-Then use the full path for all commands:
+Example:
 ```bash
-$CHEMBL_SCRIPT "kinase inhibitors" 15
+~/.claude/skills/chembl-search/scripts/search "kinase inhibitors" 15
 ```
+
 
 ## API Key Setup Flow
 
