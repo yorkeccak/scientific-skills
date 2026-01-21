@@ -1,6 +1,6 @@
 # Scientific Skills for Claude
 
-<video src="demo.mp4" controls></video>
+![Demo](demo.mp4)
 
 Natural language scientific literature search skills with semantic semantic over PubMed, arXiv, ChEMBL, DrugBank, bioRxiv, medRxiv, clinical trials, and more with zero API complexity.
 
@@ -303,10 +303,6 @@ This is a local development repository. For public contributions, please visit [
 ## License
 
 MIT License - See individual skill files for details.
-
-## Acknowledgments
-
-Built with [Valyu](https://valyu.ai) - The ingress layer for AI.
 
 ---
 
