@@ -91,9 +91,9 @@ git clone https://github.com/yorkeccak/scientific-skills.git
 
 ## Quick Start
 
-### 1. Get Your API Key
+### 1. Get an API Key for the Valyu search
 
-Get a free API key with $10 credits at [platform.valyu.ai](https://platform.valyu.ai)
+There is $10 free credits: [platform.valyu.ai](https://platform.valyu.ai)
 
 ### 2. First Use (Automatic Setup)
 
@@ -238,54 +238,7 @@ skill-name-search/
     └── search.mjs        # Node.js implementation
 ```
 
-### API Integration
-
-- **Base URL**: `https://api.valyu.ai/v1`
-- **Endpoint**: `/search`
-- **Authentication**: X-API-Key header
-- **Method**: POST with JSON body
-
-### Script Structure
-
-All scripts use Node.js built-in `fetch()` for HTTP requests:
-- No external dependencies
-- Simple, auditable code
-- Fast execution
-- Cross-platform compatible
-
-## Error Handling
-
-All skills return JSON with a `success` field:
-
-```json
-{
-  "success": false,
-  "error": "Error message"
-}
-```
-
-Exit codes:
-- `0` - Success
-- `1` - Error (check JSON for details)
-
 ## FAQ
-
-### Do I need a separate API key for each skill?
-
-No! One Valyu API key works for all skills. The skills just query different data sources.
-
-### How much does it cost?
-
-New accounts get $10 in free credits. After that, costs are minimal (typically $0.01-0.05 per search depending on results).
-
-### Can I use these skills outside of Claude?
-
-Yes! The scripts are standalone CLI tools. Run them directly:
-
-```bash
-cd ~/dev/scientific-skills/skills/pubmed-search
-./scripts/search "your query" 10
-```
 
 ### What's the difference between individual and aggregated skills?
 
@@ -305,13 +258,9 @@ The skills use natural language queries by design to eliminate API complexity. F
 2. Adjust the `maxResults` parameter
 3. Filter results using jq after receiving them
 
-### Are the results cached?
-
-No. Each search queries Valyu's API in real-time for the freshest results.
-
 ## Comparison to Traditional Search
 
-| Feature | Traditional Search | Valyu Skills |
+| Feature | Traditional Search | These Skills |
 |---------|-------------------|--------------|
 | Query Format | Complex syntax, Boolean operators | Natural language |
 | Search Type | Keyword matching | Semantic understanding |
@@ -322,25 +271,8 @@ No. Each search queries Valyu's API in real-time for the freshest results.
 
 ## Contributing
 
-This is a local development repository. For public contributions, please visit [github.com/valyu-network/scientific-skills](https://github.com/valyu-network/scientific-skills).
-
-## Support
-
-- **Valyu API Documentation**: [docs.valyu.ai](https://docs.valyu.ai)
-- **API Status**: [status.valyu.ai](https://status.valyu.ai)
-- **Support Email**: [email protected]
-- **Platform**: [platform.valyu.ai](https://platform.valyu.ai)
+Welcome all PRs!
 
 ## License
 
 MIT License - See individual skill files for details.
-
----
-
-**Ready to start searching?**
-
-1. Get your free API key: [platform.valyu.ai](https://platform.valyu.ai)
-2. Pick a skill from the table above
-3. Ask Claude to search in natural language
-
-That's it! No complex setup, no API documentation to read, no syntax to learn. Just ask Claude to search, and it works.
