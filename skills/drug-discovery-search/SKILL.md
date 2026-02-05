@@ -30,20 +30,19 @@ Search across all major drug discovery databases (ChEMBL, DrugBank, FDA drug lab
 1. Node.js 18+ (uses built-in fetch)
 2. Valyu API key from https://platform.valyu.ai ($10 free credits)
 
-## CRITICAL: Script Path Resolution
+## Usage
 
-The `scripts/search` commands in this documentation are relative to this skill's installation directory.
-
-Before running any command, locate the script using:
+Run searches using the installed skill path:
 
 ```bash
-DRUG_DISCOVERY_SCRIPT=$(find ~/.claude/plugins/cache -name "search" -path "*/drug-discovery-search/*/scripts/*" -type f 2>/dev/null | head -1)
+~/.claude/skills/drug-discovery-search/scripts/search "your search query" 20
 ```
 
-Then use the full path for all commands:
+Example:
 ```bash
-$DRUG_DISCOVERY_SCRIPT "JAK2 inhibitors" 20
+~/.claude/skills/drug-discovery-search/scripts/search "kinase inhibitors" 15
 ```
+
 
 ## API Key Setup Flow
 
